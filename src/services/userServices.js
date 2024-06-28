@@ -10,6 +10,14 @@ const userServices = {
             email,
             password
         });
+    },
+    // login a user
+    login: async (email, password) => {
+        // make a POST request to the login endpoint
+        return await instance.post('/users/login', {
+            email,
+            password
+        });
     }
 }
 

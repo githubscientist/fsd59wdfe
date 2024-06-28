@@ -1,6 +1,5 @@
 import { useState } from "react";
 import userServices from "../services/userServices";
-import { Alert } from "bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {

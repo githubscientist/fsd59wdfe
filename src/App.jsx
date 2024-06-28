@@ -3,6 +3,7 @@ import HomeWrapper from "./pages/HomeWrapper";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import DashboardWrapper from "./pages/DashboardWrapper";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         element: <Login />
       }
     ]
+  },
+  {
+    path: "dashboard",
+    element: <DashboardWrapper />
   }
 ]);
 
