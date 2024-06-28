@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import DashboardWrapper from "./pages/DashboardWrapper";
+import { loader as userLoader } from "./pages/DashboardWrapper";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardWrapper />
+    element: <DashboardWrapper />,
+    loader: userLoader
   }
 ]);
 
