@@ -20,12 +20,33 @@ const userServices = {
         }, { withCredentials: true });
     },
     getProfile: async () => {
-        // make a GET request to the profile endpoint
-        return protectedInstance.get('/users/profile');
+        try {
+            // make a GET request to the profile endpoint
+            const user = await protectedInstance.get('/users/profile');
+            return user;
+        } catch (error) {
+            return null;
+        }
     },
     logout: async () => {
         // make a GET request to the logout endpoint
         return protectedInstance.get('/users/logout');
+    },
+    // to check if the user is authenticated
+    checkAuth: async () => {
+        try {
+            // make a GET request to the profile endpoint
+            const user = await protectedInstance.get('/users/profile');
+            return user ? true : false;
+        } catch (error) {
+            return false;
+        }
+    },
+    updateProfile: async (name, email) => {
+        return await protectedInstance.put('/users/profile', {
+            name,
+            email
+        })
     }
 }
 

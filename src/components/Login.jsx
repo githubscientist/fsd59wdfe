@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import userServices from "../services/userServices";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+
+export async function loader() {
+    // check if the user is already authenticated
+    const isAuthenticated = await userServices.checkAuth();
+    return { isAuthenticated };
+}
 
 const Login = () => {
+
+    const { isAuthenticated } = useLoaderData();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/dashboard");
+        }
+    }, []);
 
     const handleLogin = (e) => {
         e.preventDefault();
