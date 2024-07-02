@@ -11,6 +11,8 @@ import Companies from "./components/Companies";
 import Applications from "./components/Applications";
 import Profile from "./components/Profile";
 import { loader as companyLoader } from "./components/Companies";
+import { loader as jobsLoader } from "./components/Jobs";
+import { loader as applicationsLoader } from "./components/Applications";
 
 const router = createBrowserRouter([
   {
@@ -38,17 +40,24 @@ const router = createBrowserRouter([
     loader: userLoader,
     children: [
       {
+        index: true,
+        element: <Companies />,
+        loader: companyLoader
+      },
+      {
         path: "companies",
         element: <Companies />,
         loader: companyLoader
     },
       {
         path: "jobs",
-        element: <Jobs />
+        element: <Jobs />,
+        loader: jobsLoader
       },
       {
         path: "applications",
-        element: <Applications />
+        element: <Applications />,
+        loader: applicationsLoader
       },
       {
         path: "profile",

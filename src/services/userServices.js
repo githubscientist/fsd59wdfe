@@ -47,6 +47,13 @@ const userServices = {
             name,
             email
         })
+    },
+    setProfilePicture: async (formData) => {
+        return await protectedInstance.put('/users/profile/picture', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 }
 
